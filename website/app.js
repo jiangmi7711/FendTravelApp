@@ -1,10 +1,10 @@
 /* Global Variables */
-const key = '27d891e24ae7e45915dfc2b0bf25efc9';
+const key = '27d891e24ae7e45915dfc2b0bf25efc9&units=imperial';
 const api = 'https:api.openweathermap.org/data/2.5/weather?zip=';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
 //Create an event listener for the element with the id: generate
 document.getElementById('generate').addEventListener('click', performAction);
 //api request
@@ -14,8 +14,11 @@ function performAction(e){
     .then(function(data){
         let userResponse = document.getElementById('feelings').value;//!!! get dom userresponse
         postData('/all',{temperature: data.main.temp, date: newDate, 'user response': userResponse});
-        updateUI()
+       // updateUI()
     })
+    .then(function() {
+      updateUI()
+    });  
 }
 
 const getWeather = async(api, key, zip)=>{
@@ -24,7 +27,7 @@ const getWeather = async(api, key, zip)=>{
     const res = await fetch(url);
     try {
         const data = await res.json();
-        //console.log(data)
+        console.log(data)
         return data;
       }  catch(error) {
         console.log("error", error)};
@@ -33,7 +36,7 @@ const getWeather = async(api, key, zip)=>{
 
 // After your successful retrieval of the weather data, you will need to chain another Promise that makes a POST request to add the API data, as well as data entered by the user, to your app.
 // Async POST
-const postData = async (url = '', data = {}, userResponse)=>{
+const postData = async (url = '', data = {})=>{
     const response = await fetch(url, {
     method: 'POST', 
     credentials: 'same-origin', 
@@ -57,9 +60,9 @@ const updateUI = async () => {
   try{
     const allData = await request.json();
     console.log(allData)
-    document.getElementById('date').innerHTML = allData[allData.length-1].date;
-    document.getElementById('temp').innerHTML = allData[allData.length-1].temperature;
-    document.getElementById('content').innerHTML = allData[allData.length-1]['user response'];
+    document.getElementById('date').innerHTML = allData.date;
+    document.getElementById('temp').innerHTML = allData.temperature;
+    document.getElementById('content').innerHTML = allData['user response'];
 
   }catch(error){
     console.log("error", error);

@@ -20,7 +20,7 @@ app.use(express.static('website'));
 
 
 // Setup Server
-const port = 8000;
+const port = 3000;
 // Callback to debug
 const server = app.listen(port, ()=>{console.log(`${port} is connected!`)});
 // Initialize all route with a callback function
@@ -36,14 +36,15 @@ console.log(projectData);
 
 // Post Route
 
-app.post("/all", postData);
-function postData(req, res){
+app.post("/all", callBack);
+function callBack(req, res){
 newData = {
     temperature:req.body.temperature,
     date:req.body.date,
     'user response':req.body['user response']
 }
-projectData.push(newData);
-res.send(projectData);
+//projectData.push(newData);
+projectData = newData;
+//res.send(projectData);
 //projectData = request.body;
 };
