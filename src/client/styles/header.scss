@@ -1,0 +1,12 @@
+header {
+    padding: 50px;
+    background-image: url("../media/travel.jpg");
+}
+
+#title {
+    grid-area: tl;
+    display: flex;
+    justify-content: center;
+    padding: 20px 40px;
+    font-size: 2em;
+}

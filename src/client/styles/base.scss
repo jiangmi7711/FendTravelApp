@@ -1,0 +1,67 @@
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Merriweather', serif;
+            color: #fff;
+        }
+        
+        main {
+            flex: 2;
+            background-image: url("../media/travel.jpg");
+            background-size: contain;
+        }
+        
+        .app {
+            background: linear-gradient(0deg, rgba(136, 203, 171, 1) 0%, rgba(0, 13, 60, 1) 100%);
+            display: grid;
+            width: fit-content;
+            max-width: 800px;
+            margin: auto;
+            grid-template-areas: "tl tl" "img form" "img res";
+            grid-template-columns: 400px 1fr;
+            grid-template-rows: 50px 1fr;
+            gap: 20px;
+            padding: 10px;
+            border: 1px solid whitesmoke;
+        }
+        
+        #form {}
+        
+        #analysis {
+            border: 1px solid whitesmoke;
+            border-radius: 3px;
+            padding: 10px;
+        }
+        
+        #image {
+            display: none;
+            grid-area: img;
+            width: 100%;
+            align-content: space-around;
+        }
+        
+        #imageSRS,
+        #imageSRS2 {
+            object-fit: contain;
+            width: 100%;
+        }
+        
+        #results {
+            display: none;
+            grid-area: res;
+        }
+        
+        #details,
+        #country {
+            font-size: 1.5em;
+        }
+        
+        @media(min-width: 150px) and (max-width: 600px) {
+            .app {
+                display: block;
+                margin: auto;
+                gap: 10px;
+            }
+        }

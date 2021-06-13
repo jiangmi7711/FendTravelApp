@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel Planner</title>
+</head>
+
+<body>
+
+    <main>
+
+        <section class="app">
+
+            <div id=title>
+                <h2>Travel Planner</h2>
+            </div>
+
+            <section id="image">
+                <div id="imageContainer">
+                    <img id="imageSRS" src="" />
+                </div>
+                <div id="imageContainer2">
+                    <img id="imageSRS2" src="" />
+                </div>
+            </section>
+
+
+
+            <section id="form">
+                <form class="dataForm">
+                    <label for="city">My trip to:</label>
+                    <input id="city" type="text" name="input" contenteditable="true" value="" placeholder="City" required><br>
+                    <label for="departing">Departing:</label>
+                    <input id="departing" type="date" name="date" max="" value="" valueAsNumber="" required><br>
+                    <label for="returning">Returning:</label>
+                    <input id="returning" type="date" name="date" max="" value="" valueAsNumber="" required><br><br>
+                    <button type="submit" name="" value="Save Trip" id="button">Save Trip</button>
+                    <button type="submit" name="" value="Remove Trip" id="clearButton" disabled>Remove Trip</button>
+
+                </form>
+            </section>
+
+            <section id=results>
+                <div id="analysis">
+                    <div id="details">Your trip details:</div>
+                    <div><br></div>
+                    <div id="countdown"></div><br>
+                    <div id="tripLong"></div><br>
+                    <div id="forecast"></div>
+                    <img id="icon" src="" />
+                    <div id="temp"></div>
+                    <div id="description"></div><br><br>
+                    <div id="country"></div><br>
+                    <div id="capital"></div>
+                    <div id="language"></div>
+                    <div id="currency"></div><br>
+                    <button id="printButton">Print your trip</button>
+
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+
+</body>
+
+</html>
