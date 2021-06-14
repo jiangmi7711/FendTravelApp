@@ -42,7 +42,7 @@ app.get('/', function(req, res) {
 //Geonames API
 app.post('/coords', async(req, res) => {
     try {
-        const getCoords = await axios.post(`http://api.geonames.org/searchJSON?q=${req.body.city}&maxRows=1&username=pslasso`);
+        const getCoords = await axios.post(`http://api.geonames.org/searchJSON?q=${req.body.city}&maxRows=1&username=jiangm7711`);
 
         const { data } = getCoords;
 
