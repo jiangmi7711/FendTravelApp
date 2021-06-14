@@ -5,9 +5,9 @@ const express = require('express');
 var request = require("request");
 const dotenv = require('dotenv');
 
-
+// Start up an instance of app
 const app = express();
-
+// Express to run server and route
 app.use(express.static('dist'))
 app.use(express.static('src'));
 
@@ -26,10 +26,9 @@ let pixabayKey = process.env.API_KEY2;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Cors for cross origin allowance
+// Include the 'cors' package and connect it to the express app instance.
 const cors = require('cors');
 app.use(cors());
-
 
 
 // TODO-ROUTES!
@@ -43,13 +42,14 @@ app.get('/', function(req, res) {
 app.post('/coords', async(req, res) => {
     try {
         const getCoords = await axios.post(`http://api.geonames.org/searchJSON?q=${req.body.city}&maxRows=1&username=jiangm7711`);
-
+      
         const { data } = getCoords;
 
         const cords = {
             lat: data.geonames[0].lat,
             lng: data.geonames[0].lng,
-            countryName: data.geonames[0].countryName
+            countryName: data.geonames[0].countryName,
+            fcodeName: data.geonames[0].fcodeName
         };
 
         res.send(cords);
@@ -158,7 +158,7 @@ app.use(function(req, res, next) {
 
 // designates what port the app will listen to for incoming requests
 app.listen(8081, function() {
-    console.log('Example app listening on port 8081!')
+    console.log('running on localhost:8081!')
 });
 
 module.exports = app;
