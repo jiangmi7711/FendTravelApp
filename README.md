@@ -1,6 +1,6 @@
 # TRAVEL APP UDACITY
 
-This app the user to know some fact about his trip, like the wather, duration and a picture of the city wheres he going.
+This project is to build out a travel app that, at a minimum, obtains a desired trip location & date from the user, and displays weather and an image of the location using information obtained from external APIs. 
 
 # APIs
 
@@ -17,12 +17,11 @@ This appi provides the forecast for the next 16 days in their free account, so t
 
 Used for getting the picture of the city by passing its name.
 
-
 # Server
 
 This app uses express server
 
-# Lenaguages and plugins
+# Languages and plugins
 
 ## For async fuctions to run propperly:
 
@@ -40,7 +39,6 @@ npm install --save @babel/runtime
 * body-parser
 * NPM
 * Jest
-
 * Javascript
 * Scss
 * HTML
