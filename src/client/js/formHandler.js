@@ -7,6 +7,7 @@ async function handleSubmit(event) {
     //calculates the number of days remaining to the trip
     let departure = document.getElementById("departing").valueAsNumber;
     let date = new Date();
+    //returns the number of milliseconds 
     let days = departure - date.getTime();
 
     //calculates the trip long
@@ -58,7 +59,7 @@ async function handleSubmit(event) {
 
 
     /*api call Restcountries*/
-    const countryRes = await fetch("http://localhost:8081/country", {
+ /*    const countryRes = await fetch("http://localhost:8081/country", {
         method: "POST",
         mode: "cors",
         headers: {
@@ -69,10 +70,11 @@ async function handleSubmit(event) {
     });
     const countryData = await countryRes.json();
     console.log(countryData);
-
+ */
 
     //Fetches data from server.
-    const data = [{ geoData }, { weatherData }, { city: city }, { days: days }, { photoData }, { tripLong: tripLong }, { countryData }]
+   // const data = [{ geoData }, { weatherData }, { city: city }, { days: days }, { photoData }, { tripLong: tripLong }, { countryData }]
+    const data = [{ geoData }, { weatherData }, { city: city }, { days: days }, { photoData }]
     document.querySelector("#clearButton").removeAttribute("disabled");
     //update UI
     Client.updateUI(data);
