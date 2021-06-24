@@ -4,6 +4,11 @@ This project is to build out a travel app that, at a minimum, obtains a desired 
 
 # APIs
 
+# Extend your Project  - features 
+Below are the features imnplemented to extend the project further: 
+1. Allow the user to remove the trip.
+2. Allow user to Print their trip and/or export to PDF.
+
 ## Geonames
 
 Used for getting the lat and lng of the city by passing the name of it.
